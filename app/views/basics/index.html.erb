@@ -1,0 +1,100 @@
+<div class='main'>
+  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      ちさないのちをその手でまもるためのアプリ
+    </h2>
+    <p class='service-explain'>
+      改めてちいさないのちと向き合おう！
+    </p>
+    <p class='service-explain'>
+      大事ないのちの記録アプリです。
+    </p>
+  </div>
+  
+  <div class='select-reason-contents'>
+    <h2 class='title'>
+      Petちゃんの特徴とできること
+    </h2>
+    <ul class='reason-lists'>
+      <li class='list'>
+        <%= image_tag "表紙.jpg", class:"list-pict" %>
+        <span class='reason-list-number'>1</span>
+        <h3 class='reason-list-text'>
+          <span class='reason-list-blue-text'>自分ちのペットちゃん</span>
+          のあれこれを簡単管理
+        </h3>
+        <p class='reason-list-description'>
+          ペットちゃんのトリセツが作れる！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "hogo.jpg", class:"list-pict" %>
+        <span class='reason-list-number'>2</span>
+        <h3 class='reason-list-text'>
+          <span class='reason-list-blue-text'>突然保護した時</span>
+          にも役立ついざという時の備えに！
+        </h3>
+        <p class='reason-list-description'>
+          譲渡時にも役立つ項目満載！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "らぶたちdier.jpg", class:"list-pict" %>
+        <span class='reason-list-number'>3</span>
+        <h3 class='reason-list-text'>
+          簡単入力で
+          <span class='reason-list-blue-text'>複数のペット情報管理！</span>
+        </h3>
+        <p class='reason-list-description'>
+          写真も登録できるよ！
+        </p>
+      </li>
+    </ul>
+  </div>
+  
+  <div class='ad-contents'>
+    <h2 class='ad-title'>
+      殺処分”０”日本を目指して！！
+    </h2>
+    <p class='ad-explain'>
+      責任を持って目の前の命を守ろう
+    </p>
+    <p class='ad-explain'>
+      あなたのその手で救われる命があります
+    </p>
+    <p class='ad-explain'>
+      みんなで考えよう
+    </p>
+  </div>
+
+  <%# ペットちゃん一覧 %>
+  <div class='basic-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle">
+      新規投稿ペットちゃん
+    </div>
+    <ul class='basic-lists'>
+      <% if @basic[0] != nil %>
+        <% @basic.each do |basic| %>
+          <li class='list'>
+            <%= link_to basic_path(basic) do %>
+              <div class='basic-img-content'>
+                <%= image_tag basic.image, class: "basic-img" %>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  
+  <%# //pet 一覧 %>
+</div>
+<%= link_to(new_basic_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>うちのペットちゃん追加</span>
+  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
+<%= render "shared/footer" %>
+
+
